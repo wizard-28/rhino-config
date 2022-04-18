@@ -36,18 +36,17 @@ def config():
     # Give the user the choice of installing the latest mainline kernel and take user input
     mainline = input("Do you wish to install the latest Linux mainline kernel? [Y/n] ")
     # If user input is yes, go to the mainline install function
-    if mainline == "Y" or mainline == "y" or mainline == "":
+    if mainline in ["Y", "y", ""]:
         mainlineInstall()
-    # If user input is no, go to the mainline denied function
-    elif mainline == "n" or mainline == "N":
+    elif mainline in ["n", "N"]:
         mainlineDenied()
     print("---")
     snapd = input("Do you wish to remove Snapcraft (snapd) and replace it with Flatpaks? [Y/n]")
-    if snapd == "Y" or snapd == "y" or snapd == "":
+    if snapd in ["Y", "y", ""]:
         snapdPurge()
-    elif snapd == "n" or snapd == "N":
+    elif snapd in ["n", "N"]:
         snapdKeep()
-    
+
     # Print that the program has completed and then exit
     print("\nrhino-config has completed, please run rhino-update to update your system!")
     quit()
